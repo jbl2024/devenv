@@ -1,0 +1,7 @@
+services:
+  dev-env:
+    build: .
+    container_name: dev-env-container
+    volumes:
+      - .:/workspace
+    working_dir: /workspace
