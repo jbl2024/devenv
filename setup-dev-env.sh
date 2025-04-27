@@ -90,6 +90,27 @@ install_rest() {
   sudo apt update
   sudo apt upgrade -y
   sudo apt install -y ca-certificates curl wget gnupg lsb-release git gpg software-properties-common
+  sudo apt install -y \
+    vim \
+    build-essential \
+    zlib1g-dev \
+    libncurses5-dev \
+    libncursesw5-dev \
+    libreadline-dev \
+    libffi-dev \
+    libbz2-dev \
+    libssl-dev \
+    libsqlite3-dev \
+    liblzma-dev \
+    tk-dev \
+    uuid-dev \
+    libgdbm-dev \
+    libnss3-dev \
+    libedit-dev \
+    python3-openssl \
+    golang \
+    tmux
+
 
   echo "→ Installation de Docker…"
   sudo mkdir -p /etc/apt/keyrings
@@ -135,7 +156,6 @@ EOF
 
   echo "   • Node.js 20.13.1 via asdf"
   asdf plugin-add nodejs
-  bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
   asdf install nodejs 20.13.1
   asdf global nodejs 20.13.1
 
@@ -144,7 +164,6 @@ EOF
   echo 'eval "$(direnv hook zsh)"' >> ~/.zshrc
 
   echo "→ Installation de Overmind…"
-  sudo apt install -y golang tmux
   go install github.com/DarthSim/overmind/v2@latest
   echo 'export PATH=$PATH:$HOME/go/bin' >> ~/.zshrc
 
